@@ -23,8 +23,8 @@ function make.scripts
 		exe=$bin/coral-$tag
 	fi
 	
-	#aligns="tophat star hisat"
-	aligns="star"
+#aligns="hisat"
+	aligns="hisat star"
 
 	for x in `cat $list`
 	do
@@ -42,7 +42,7 @@ function make.scripts
 		do
 	
 			cur=$results/$id.$aa/$algo.$tag
-			bam=$datadir/$id/star.sort.bam
+			bam=$datadir/$id/$aa.sort.bam
 			pbsfile=$pbsdir/$id.$aa.pbs
 	
 			if [ ! -s $bam ]; then
@@ -59,8 +59,12 @@ function make.scripts
 
 			if [ "$algo" == "coral" ]; then
 				cur1=$results/$id.$aa/stringtie.$tag
+				cur2=$results/$id.$aa/scallop.$tag
 				bam1=$cur/coral.sort.bam
 				echo "$dir/run.stringtie.sh $bin/stringtie $cur1 $bam1 $gtf $coverage $ss" >> $pbsfile
+				echo "$dir/run.scallop.sh $bin/scallop $cur2 $bam1 $gtf $coverage $ss" >> $pbsfile
+#cur2=$results/$id.$aa/stringtie.$tag.B
+#echo "$dir/run.stringtie.sh $bin/stringtie $cur2 $bam1 $gtf $coverage nostrand" >> $pbsfile
 			fi
 		done
 	done
@@ -72,7 +76,6 @@ tag=$1
 ## MODIFY THE FOLLOWING LINES TO SPECIFIY EXPERIMENTS
 #usage: make.scripts <coral|stringtie|transcomb> <ID of this run> <minimum-coverage>
 #make.scripts cufflinks test2 999
-#make.scripts stringtie test2 1.0
 #make.scripts transcomb test2 0.01
-#make.scripts coral $tag default
+#make.scripts scallop $tag default
 make.scripts coral $tag default

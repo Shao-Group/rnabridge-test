@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$#" != "6" ] && [ "$#" != "7" ]; then
-	echo "usage $0 exe cur-dir bam-file gtf-file coverage strand [quantfile]"
+if [ "$#" != "6" ]; then
+	echo "usage $0 exe cur-dir bam-file gtf-file coverage strand"
 	exit
 fi
 
@@ -17,7 +17,7 @@ mkdir -p $cur
 
 cd $cur
 
-{ /usr/bin/time -v $exe -i $bam -o coral.bam > coral.log; } 2> time.log
+{ /usr/bin/time -v $exe -i $bam -o coral.bam -t $strand > coral.log; } 2> time.log
 samtools sort coral.bam coral.sort
 
 cd -
