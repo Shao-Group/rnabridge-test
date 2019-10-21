@@ -17,7 +17,8 @@ mkdir -p $cur
 
 cd $cur
 
-{ /usr/bin/time -v $exe -i $bam -o coral.bam -t $strand > coral.log; } 2> time.log
-samtools sort coral.bam coral.sort
+#{ /usr/bin/time -v $exe -i $bam -b coral.bam -r $gtf > coral.log; } 2> time.log
+{ /usr/bin/time -v $exe -i $bam -b coral.bam  > coral.log; } 2> time.log
+samtools sort -o coral.sort.bam -@ 4 coral.bam 
 
 cd -

@@ -5,7 +5,7 @@ if [ "$#" != "6" ] && [ "$#" != "7" ]; then
 	exit
 fi
 
-bin=/storage/home/m/mxs2589/group/projects/scalloptest/programs
+bin=/home/mxs2589/shao/project/coraltest/programs
 exe=$1
 cur=$2
 bam=$3

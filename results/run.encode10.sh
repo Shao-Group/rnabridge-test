@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir=`pwd`
-coralsrc=/storage/home/m/mxs2589/group/projects/coral/src
+coralsrc=/home/mxs2589/shao/project/scallop/src
 bin=$dir/../programs
 list=$dir/../data/encode10.list
 datadir=$dir/../data/encode10
@@ -19,12 +19,12 @@ function make.scripts
 	mkdir -p $pbsdir
 
 	if [ "$algo" == "coral" ]; then
-		cp $coralsrc/coral $bin/coral-$tag
+		cp $coralsrc/scallop $bin/coral-$tag
 		exe=$bin/coral-$tag
 	fi
 	
-#aligns="hisat"
-	aligns="hisat star"
+	aligns="star"
+#aligns="hisat star"
 
 	for x in `cat $list`
 	do
@@ -43,7 +43,8 @@ function make.scripts
 	
 			cur=$results/$id.$aa/$algo.$tag
 			bam=$datadir/$id/$aa.sort.bam
-			pbsfile=$pbsdir/$id.$aa.pbs
+			pbsfile=$pbsdir/$id.$aa.sh
+
 	
 			if [ ! -s $bam ]; then
 				echo "make sure $bam is available"
@@ -51,21 +52,25 @@ function make.scripts
 			fi
 
 			echo "#!/bin/bash" > $pbsfile
-			echo "#PBS -l nodes=1:ppn=1" >> $pbsfile
-			echo "#PBS -l mem=200gb" >> $pbsfile
-			echo "#PBS -l walltime=2:00:00" >> $pbsfile
-			echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
+#echo "#PBS -l nodes=1:ppn=1" >> $pbsfile
+#echo "#PBS -l mem=200gb" >> $pbsfile
+#echo "#PBS -l walltime=2:00:00" >> $pbsfile
+#echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
+
 			echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss" >> $pbsfile
 
 			if [ "$algo" == "coral" ]; then
 				cur1=$results/$id.$aa/stringtie.$tag
 				cur2=$results/$id.$aa/scallop.$tag
 				bam1=$cur/coral.sort.bam
-				echo "$dir/run.stringtie.sh $bin/stringtie $cur1 $bam1 $gtf $coverage $ss" >> $pbsfile
 				echo "$dir/run.scallop.sh $bin/scallop $cur2 $bam1 $gtf $coverage $ss" >> $pbsfile
+				echo "$dir/run.stringtie.sh $bin/stringtie $cur1 $bam1 $gtf $coverage $ss" >> $pbsfile
+
 #cur2=$results/$id.$aa/stringtie.$tag.B
 #echo "$dir/run.stringtie.sh $bin/stringtie $cur2 $bam1 $gtf $coverage nostrand" >> $pbsfile
 			fi
+
+			chmod +x $pbsfile
 		done
 	done
 }
@@ -78,4 +83,12 @@ tag=$1
 #make.scripts cufflinks test2 999
 #make.scripts transcomb test2 0.01
 #make.scripts scallop $tag default
-make.scripts coral $tag default
+#make.scripts coral $tag default
+make.scripts stringtie $tag default
+
+pbsdir=$dir/pbs.$tag
+for k in `ls $pbsdir/*.sh`
+do
+	echo $k
+	nohup $k &
+done

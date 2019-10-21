@@ -5,7 +5,7 @@ if [ "$#" != "6" ] && [ "$#" != "7" ]; then
 	exit
 fi
 
-bin=/storage/home/m/mxs2589/group/projects/scalloptest/programs
+bin=/home/mxs2589/shao/project/coraltest/programs
 exe=$1
 cur=$2
 bam=$3
@@ -19,9 +19,9 @@ cd $cur
 
 if [ "$coverage" == "default" ]
 then
-	{ /usr/bin/time -v $exe -i $bam -o scallop.gtf --library_type $strand > scallop.log; } 2> time.log
+	{ /usr/bin/time -v $exe -i $bam -o scallop.gtf --max_num_cigar 100 --library_type $strand > scallop.log; } 2> time.log
 else
-	{ /usr/bin/time -v $exe -i $bam -o scallop.gtf --library_type $strand -c $coverage > scallop.log; } 2> time.log
+	{ /usr/bin/time -v $exe -i $bam -o scallop.gtf --max_num_cigar 100 --library_type $strand -c $coverage > scallop.log; } 2> time.log
 fi
 
 cat scallop.gtf | sed 's/^chr//g' > scallop.tmp.xxx.gtf
