@@ -1,11 +1,13 @@
 #!/bin/bash
 
+add=""
 dir=`pwd`
 coralsrc=/home/mxs2589/shao/project/scallop/src
 bin=$dir/../programs
 list=$dir/../data/encode10.list
-datadir=$dir/../data/encode10
-results=$dir/../results/encode10
+datadir=$dir/../data/encode10$add
+results=$dir/../results/encode10$add
+pbs="pbs"$add
 mkdir -p $results
 
 function make.scripts
@@ -15,7 +17,7 @@ function make.scripts
 	coverage=$3
 	exe=$bin/$algo
 
-	pbsdir=$dir/pbs.$tag
+	pbsdir=$dir/$pbs.$tag
 	mkdir -p $pbsdir
 
 	if [ "$algo" == "coral" ]; then
@@ -23,8 +25,13 @@ function make.scripts
 		exe=$bin/coral-$tag
 	fi
 	
-	aligns="star"
-#aligns="hisat star"
+	aligns="star hisat"
+
+	if [ "$add" == "-gtf" ]; then
+		aligns="star"
+	fi
+
+	aligns="hisat"
 
 	for x in `cat $list`
 	do
@@ -83,10 +90,10 @@ tag=$1
 #make.scripts cufflinks test2 999
 #make.scripts transcomb test2 0.01
 #make.scripts scallop $tag default
-#make.scripts coral $tag default
-make.scripts stringtie $tag default
+#make.scripts stringtie $tag default
+make.scripts coral $tag default
 
-pbsdir=$dir/pbs.$tag
+pbsdir=$dir/$pbs.$tag
 for k in `ls $pbsdir/*.sh`
 do
 	echo $k

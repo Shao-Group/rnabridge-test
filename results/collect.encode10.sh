@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #suffix="v0.10.3.C"
-suffix=$1
-algo="stringtie"
+#suffix=$1
+#algo="stringtie"
 
 while getopts "a:x:p:" arg
 do
@@ -19,8 +19,8 @@ do
 	esac
 done
 
+results=../results/encode10
 list=../data/encode10.list
-results=../results/encode10-gtf
 gtfcuff=../programs/gtfcuff
 
 #echo "#summary of multi-exon accuracy"
@@ -30,7 +30,8 @@ echo "#accession aligner #total #correct sensitivity(%) precision(%)"
 for x in `cat $list`
 do
 #for aa in `echo "tophat star hisat"`
-	for aa in `echo "star"`
+#for aa in `echo "star"`
+for aa in `echo "hisat"`
 	do
 		id=`echo $x | cut -f 1 -d ":"`
 		ss=`echo $x | cut -f 2 -d ":"`
@@ -73,13 +74,13 @@ do
 			fi
 
 			m2=""
-			if (( $(echo "$p3 > $x3" | bc -l) )); then
+			if (( $(echo "$x3 < $p3" | bc -l) )); then
 				line=`$gtfcuff match-precision $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap $total $p3`
 				mx1=`echo $line | cut -f 13 -d " "`
 				mx2=`echo $line | cut -f 16 -d " "`
 				m2="$mx2 $mx1 $p2"
 			else
-				line=`$gtfcuff match-precision $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap $total $p3`
+				line=`$gtfcuff match-precision $results/$id.$aa/$algo.$comp/gffmul.$algo.gtf.tmap $total $x3`
 				mx1=`echo $line | cut -f 13 -d " "`
 				mx2=`echo $line | cut -f 16 -d " "`
 				m2="$mx2 $x2 $mx1"

@@ -2,11 +2,16 @@
 
 dir=`pwd`
 bin=$dir/../programs
-list=$dir/../data/encode65.list
+coralsrc=/home/mxs2589/shao/project/scallop/src
+list=$dir/../data/encode65.strand.list
 datadir=$dir/../data/encode65
 results=$dir/../results/encode65
-coralsrc=/storage/home/m/mxs2589/group/projects/coral/src
+pbs="pbs65"
 mkdir -p $results
+
+tag=$1
+pbsdir=$dir/$pbs.$tag.sc
+mkdir -p $pbsdir
 
 function make.scripts
 {
@@ -15,11 +20,8 @@ function make.scripts
 	coverage=$3;
 	exe=$bin/$algo
 
-	pbsdir=$dir/pbs.$tag
-	mkdir -p $pbsdir
-
 	if [ "$algo" == "coral" ]; then
-		cp $coralsrc/coral $bin/coral-$tag
+		cp $coralsrc/scallop $bin/coral-$tag
 		exe=$bin/coral-$tag
 	fi
 	
@@ -39,32 +41,41 @@ function make.scripts
 	
 		if [ ! -s $bam ]; then
 			echo "make sure $bam is available"
-			exit
+			continue
 		fi
 
 		cur=$results/$id/$algo.$tag
-		pbsfile=$pbsdir/$id.pbs
+		pbsfile=$pbsdir/$id.sh
 
 		echo "#!/bin/bash" > $pbsfile
-		echo "#PBS -l nodes=1:ppn=1" >> $pbsfile
-		echo "#PBS -l mem=200gb" >> $pbsfile
-		echo "#PBS -l walltime=3:00:00" >> $pbsfile
-		echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
+#echo "#PBS -l nodes=1:ppn=1" >> $pbsfile
+#echo "#PBS -l mem=200gb" >> $pbsfile
+#echo "#PBS -l walltime=3:00:00" >> $pbsfile
+#echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
+
 		echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss" >> $pbsfile
 
 		if [ "$algo" == "coral" ]; then
 			cur1=$results/$id/stringtie.$tag
-			cur2=$results/$id/stringtie.$tag
+			cur2=$results/$id/scallop.$tag
 			bam1=$cur/coral.sort.bam
-			echo "$dir/run.stringtie.sh $bin/stringtie $cur1 $bam1 $gtf $coverage nostrand" >> $pbsfile
-			echo "$dir/run.stringtie.sh $bin/stringtie $cur2 $bam1 $gtf $coverage $ss" >> $pbsfile
+			echo "$dir/run.stringtie.sh $bin/stringtie $cur1 $bam1 $gtf $coverage $ss" >> $pbsfile
+			echo "$dir/run.scallop.sh $bin/scallop $cur2 $bam1 $gtf $coverage $ss" >> $pbsfile
 		fi
+
+		chmod +x $pbsfile
 	done
 }
 
-tag=$1
 ## MODIFY THE FOLLOWING LINES TO SPECIFIY EXPERIMENTS
 #usage: make.scripts <coral|stringtie|transcomb> <ID of this run> <minimum-coverage>
 #make.scripts stringtie test3 0.01
-#make.scripts stringtie $tag default
 make.scripts coral $tag default
+#make.scripts stringtie $tag default
+#make.scripts scallop $tag default
+
+for k in `ls $pbsdir/*.sh`
+do
+	echo $k
+	nohup $k &
+done

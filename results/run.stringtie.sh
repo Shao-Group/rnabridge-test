@@ -23,9 +23,9 @@ mkdir -p $cur
 
 cd $cur
 
-if [ -s stringtie.gtf ]; then
-	exit
-fi
+#if [ -s stringtie.gtf ]; then
+#	exit
+#fi
 
 if [ "$coverage" == "default" ]
 then
