@@ -1,6 +1,6 @@
 #!/bin/bash
 
-add=""
+add="-gtf"
 dir=`pwd`
 coralsrc=/home/mxs2589/shao/project/scallop/src
 bin=$dir/../programs

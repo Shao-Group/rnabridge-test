@@ -19,14 +19,14 @@ do
 	esac
 done
 
-#list=../data/encode65.strand.list
-list=../data/encode65.list
+list=../data/encode65.strand.list
+#list=../data/encode65.list
 gtfcuff=../programs/gtfcuff
 results=../results/encode65
 
 #echo "#summary of multi-exon accuracy"
 
-echo "#accession #total #correct sensitivity(%) precision(%)"
+#echo "#accession #total #correct sensitivity(%) precision(%)"
 
 for x in `cat $list`
 do
@@ -46,6 +46,9 @@ do
 	if [ "$x2" == "" ]; then x2="0"; fi
 	if [ "$x3" == "" ]; then x3="0"; fi
 
+	x2=`echo "scale = 2; 100 * $x1 / $total" | bc`
+	x3=`echo "scale = 2; 100 * $x1 / $x0" | bc`
+
 	p0="0"
 	p1="0"
 	p2="0"
@@ -56,6 +59,9 @@ do
 		p1=`cat $results/$id/$algo.$comp/gffmul.stats | grep Matching | grep intron | grep chain | head -n 1 | awk '{print $4}'`
 		p2=`cat $results/$id/$algo.$comp/gffmul.stats | grep Intron | grep chain | head -n 1 | awk '{print $4}'`
 		p3=`cat $results/$id/$algo.$comp/gffmul.stats | grep Intron | grep chain | head -n 1 | awk '{print $6}'`
+
+		p2=`echo "scale = 2; 100 * $p1 / $total" | bc`
+		p3=`echo "scale = 2; 100 * $p1 / $p0" | bc`
 
 		m1=""
 		if [ "$x1" -gt "$p1" ]; then
