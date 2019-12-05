@@ -30,8 +30,8 @@ echo "#accession aligner #total #correct sensitivity(%) precision(%)"
 for x in `cat $list`
 do
 #for aa in `echo "tophat star hisat"`
-#for aa in `echo "star"`
-for aa in `echo "hisat"`
+#for aa in `echo "hisat"`
+for aa in `echo "star"`
 	do
 		id=`echo $x | cut -f 1 -d ":"`
 		ss=`echo $x | cut -f 2 -d ":"`

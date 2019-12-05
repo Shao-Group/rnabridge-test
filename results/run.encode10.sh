@@ -31,7 +31,7 @@ function make.scripts
 		aligns="star"
 	fi
 
-	aligns="hisat"
+#aligns="hisat"
 
 	for x in `cat $list`
 	do

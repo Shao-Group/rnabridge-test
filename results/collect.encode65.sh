@@ -19,7 +19,8 @@ do
 	esac
 done
 
-list=../data/encode65.strand.list
+#list=../data/encode65.strand.list
+list=../data/encode65.list
 gtfcuff=../programs/gtfcuff
 results=../results/encode65
 

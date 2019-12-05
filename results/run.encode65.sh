@@ -3,7 +3,8 @@
 dir=`pwd`
 bin=$dir/../programs
 coralsrc=/home/mxs2589/shao/project/scallop/src
-list=$dir/../data/encode65.strand.list
+#list=$dir/../data/encode65.strand.list
+list=$dir/../data/encode65.list
 datadir=$dir/../data/encode65
 results=$dir/../results/encode65
 pbs="pbs65"
