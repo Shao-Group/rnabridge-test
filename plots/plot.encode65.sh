@@ -1,31 +1,19 @@
 #!/bin/bash
 
 dir=`pwd`
-outdir=$dir/encode10
+outdir=$dir/encode65
 mkdir -p $outdir
 	
 cd $outdir
 
-for gtf in `echo "000 gtf"`
-do
 
 for aaa in `echo "scallop stringtie"`
 do
 
-for bbb in `echo "star hisat"`
-do
-
-for xxx in `echo "0 A"`
-do
-
-if [ "$gtf" == "gtf" ] && [ "$bbb" == "hisat" ]; then
-	continue
-fi
-
-datafile=$dir/results.D131/encode10-$gtf-$aaa-$bbb-$xxx
+datafile=$dir/results.D131/encode65-$aaa
 
 # draw precision
-id="$gtf-$aaa-$bbb-$xxx-precision"
+id="$aaa-precision"
 texfile=$outdir/$id.tex
 
 tmpfile=$dir/tmpfile.R
@@ -39,7 +27,7 @@ pdflatex $id.tex
 
 
 # draw recall
-id="$gtf-$aaa-$bbb-$xxx-correct"
+id="$aaa-correct"
 texfile=$outdir/$id.tex
 
 tmpfile=$dir/tmpfile.R
@@ -53,7 +41,4 @@ pdflatex $id.tex
 
 rm -rf $tmpfile
 
-done
-done
-done
 done
