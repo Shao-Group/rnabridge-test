@@ -89,9 +89,9 @@ do
 			m2="$mx2 $x2 $mx1"
 		fi
 
-		echo "$id $x0 $x1 $x2 $x3 $p0 $p1 $p2 $p3 $total $m1 $m2"
+		echo "$id default $x0 $x1 $x2 $x3 $p0 $p1 $p2 $p3 $total $m1 $m2"
 	else
-		echo "$id $x0 $x1 $x2 $x3"
+		echo "$id default $x0 $x1 $x2 $x3"
 	fi
 done
 

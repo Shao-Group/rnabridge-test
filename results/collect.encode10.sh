@@ -4,7 +4,9 @@
 #suffix=$1
 #algo="stringtie"
 
-while getopts "a:x:p:r:" arg
+results=../results/encode10
+
+while getopts "a:x:p:r:g" arg
 do
 	case $arg in 
 	a) 
@@ -19,10 +21,12 @@ do
 	r) 
 		aa=$OPTARG
 		;;
+	g) 
+		results=../results/encode10-gtf
+		;;
 	esac
 done
 
-results=../results/encode10
 list=../data/encode10.list
 gtfcuff=../programs/gtfcuff
 
