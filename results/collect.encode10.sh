@@ -51,6 +51,7 @@ do
 	if [ "$x2" == "" ]; then x2="0"; fi
 	if [ "$x3" == "" ]; then x3="0"; fi
 
+	x1=`cat $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap | grep = | wc -l`
 	x2=`echo "scale = 2; 100 * $x1 / $total" | bc`
 	x3=`echo "scale = 2; 100 * $x1 / $x0" | bc`
 
@@ -65,6 +66,7 @@ do
 		p2=`cat $results/$id.$aa/$algo.$comp/gffmul.stats | grep Intron | grep chain | head -n 1 | awk '{print $4}'`
 		p3=`cat $results/$id.$aa/$algo.$comp/gffmul.stats | grep Intron | grep chain | head -n 1 | awk '{print $6}'`
 
+		p1=`cat $results/$id.$aa/$algo.$comp/gffmul.$algo.gtf.tmap | grep = | wc -l`
 		p2=`echo "scale = 2; 100 * $p1 / $total" | bc`
 		p3=`echo "scale = 2; 100 * $p1 / $p0" | bc`
 

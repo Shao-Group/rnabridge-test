@@ -1,6 +1,15 @@
 #!/bin/bash
 
-add="-gtf"
+if [ "$#" != "3" ]; then
+	echo "3 parameters required"
+	exit
+fi
+
+add=""
+if [ "$3" == "-gtf" ]; then
+	add="-gtf"
+fi
+
 dir=`pwd`
 coralsrc=/home/mxs2589/shao/project/scallop/src
 bin=$dir/../programs
@@ -15,6 +24,8 @@ function make.scripts
 	algo=$1;
 	tag=$2;
 	coverage=$3
+	ref=$4
+
 	exe=$bin/$algo
 
 	pbsdir=$dir/$pbs.$tag
@@ -52,7 +63,8 @@ function make.scripts
 			bam=$datadir/$id/$aa.sort.bam
 			pbsfile=$pbsdir/$id.$aa.sh
 
-	
+#bam=$results/$id.$aa/coral.D132/coral.sort.bam
+
 			if [ ! -s $bam ]; then
 				echo "make sure $bam is available"
 				exit
@@ -64,7 +76,7 @@ function make.scripts
 #echo "#PBS -l walltime=2:00:00" >> $pbsfile
 #echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
 
-			echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss" >> $pbsfile
+			echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss $ref" >> $pbsfile
 
 			if [ "$algo" == "coral" ]; then
 				cur1=$results/$id.$aa/stringtie.$tag
@@ -82,8 +94,12 @@ function make.scripts
 	done
 }
 
-#tag=`$bin/coral --version`
 tag=$1
+ref=""
+
+if [ "$2" == "-gtf" ]; then
+	ref="-gtf"
+fi
 
 ## MODIFY THE FOLLOWING LINES TO SPECIFIY EXPERIMENTS
 #usage: make.scripts <coral|stringtie|transcomb> <ID of this run> <minimum-coverage>
@@ -91,7 +107,9 @@ tag=$1
 #make.scripts transcomb test2 0.01
 #make.scripts scallop $tag default
 #make.scripts stringtie $tag default
-make.scripts coral $tag default
+make.scripts coral $tag default $ref
+
+exit
 
 pbsdir=$dir/$pbs.$tag
 for k in `ls $pbsdir/*.sh`

@@ -11,7 +11,7 @@ pbs="pbs65"
 mkdir -p $results
 
 tag=$1
-pbsdir=$dir/$pbs.$tag.sc
+pbsdir=$dir/$pbs.$tag
 mkdir -p $pbsdir
 
 function make.scripts
@@ -19,6 +19,7 @@ function make.scripts
 	algo=$1;
 	tag=$2;
 	coverage=$3;
+	ref=$4
 	exe=$bin/$algo
 
 	if [ "$algo" == "coral" ]; then
@@ -31,7 +32,7 @@ function make.scripts
 		id=`echo $x | cut -f 1 -d ":"`
 		ss=`echo $x | cut -f 2 -d ":"`
 		gm=`echo $x | cut -f 3 -d ":"`
-		gtf=$dir/../data/ensembl/$gm.gtf
+		gtf=$dir/../data/ensembl-chr/$gm.gtf
 	
 		if [ ! -s $gtf ]; then
 			echo "make sure $gtf is available"
@@ -54,7 +55,7 @@ function make.scripts
 #echo "#PBS -l walltime=3:00:00" >> $pbsfile
 #echo "#PBS -A mxs2589_b_g_sc_default" >> $pbsfile
 
-		echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss" >> $pbsfile
+		echo "$dir/run.$algo.sh $exe $cur $bam $gtf $coverage $ss $ref" >> $pbsfile
 
 		if [ "$algo" == "coral" ]; then
 			cur1=$results/$id/stringtie.$tag
@@ -68,12 +69,21 @@ function make.scripts
 	done
 }
 
+tag=$1
+ref=""
+
+if [ "$2" == "-gtf" ]; then
+	ref="-gtf"
+fi
+
 ## MODIFY THE FOLLOWING LINES TO SPECIFIY EXPERIMENTS
 #usage: make.scripts <coral|stringtie|transcomb> <ID of this run> <minimum-coverage>
 #make.scripts stringtie test3 0.01
-make.scripts coral $tag default
 #make.scripts stringtie $tag default
 #make.scripts scallop $tag default
+make.scripts coral $tag default $ref
+
+exit
 
 for k in `ls $pbsdir/*.sh`
 do

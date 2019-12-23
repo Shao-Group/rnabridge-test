@@ -24,8 +24,8 @@ else
 	{ /usr/bin/time -v $exe -i $bam -o scallop.gtf --max_num_cigar 100 --library_type $strand -c $coverage > scallop.log; } 2> time.log
 fi
 
-cat scallop.gtf | sed 's/^chr//g' > scallop.tmp.xxx.gtf
-mv scallop.tmp.xxx.gtf scallop.gtf
+#cat scallop.gtf | sed 's/^chr//g' > scallop.tmp.xxx.gtf
+#mv scallop.tmp.xxx.gtf scallop.gtf
 
 $bin/gffcompare -o gffmul -r $gtf scallop.gtf -M -N
 $bin/gffcompare -o gffall -r $gtf scallop.gtf
