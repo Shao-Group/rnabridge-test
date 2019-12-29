@@ -34,7 +34,7 @@ cat $rawdata | sort -k${4},${4}n > $datafile
 
 rm -rf $tmpfile
 
-echo "source(\"$dir/R/barplot.adjusted.R\")" > $tmpfile
+echo "source(\"$dir/barplot.adjusted.R\")" > $tmpfile
 echo "plot.precision.horiz(\"$datafile\", \"$texfile\", $3, $4, \"$aaa\", \"Coral+$aaa\", \"$7 Precision\", 1)" >> $tmpfile
 R CMD BATCH $tmpfile
 $dir/wrap.sh $id.tex
@@ -50,14 +50,14 @@ tmpfile=$dir/tmpfile.R
 
 rm -rf $tmpfile
 
-echo "source(\"$dir/R/barplot.adjusted.R\")" > $tmpfile
+echo "source(\"$dir/barplot.adjusted.R\")" > $tmpfile
 echo "plot.correct.horiz(\"$datafile\", \"$texfile\", $5, $6, \"$aaa\", \"Coral+$aaa\", \"$7 Correct\", -1)" >> $tmpfile
 R CMD BATCH $tmpfile
 $dir/wrap.sh $id.tex
 pdflatex $id.tex
 
 id="$gtf-$aaa-$bbb-$xxx"
-cp $dir/R/combine.tex $id.tex
+cp $dir/combine.tex $id.tex
 sed -i "" "s/AAA/${id}-precision/" $id.tex
 sed -i "" "s/BBB/${id}-correct/" $id.tex
 pdflatex $id.tex
