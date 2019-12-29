@@ -34,8 +34,8 @@ else
 	{ /usr/bin/time -v $exe $bam -o stringtie.gtf $strand -c $coverage > stringtie.log; } 2> time.log
 fi
 
-cat stringtie.gtf | sed 's/^chr//g' > stringtie.tmp.xxx.gtf
-mv stringtie.tmp.xxx.gtf stringtie.gtf
+#cat stringtie.gtf | sed 's/^chr//g' > stringtie.tmp.xxx.gtf
+#mv stringtie.tmp.xxx.gtf stringtie.gtf
 
 $bin/gffcompare -o gffmul -r $gtf stringtie.gtf -M -N
 $bin/gffcompare -o gffall -r $gtf stringtie.gtf
