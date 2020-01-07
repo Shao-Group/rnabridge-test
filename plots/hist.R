@@ -39,8 +39,8 @@ hist.correct = function(datafile, texfile, p1, p2, t1, t2, title, flag)
 	library(tikzDevice);
 	tikz(texfile, width = 4.5, height = 3.5);
 	xx = matrix(nrow = 2, ncol = n);
-	xx[1,] = t(data[,p1]) * t(data[,10]) / 100;
-	xx[2,] = t(data[,p2]) * t(data[,10]) / 100;
+	xx[1,] = t(data[,p1]) * t(data[,11]) / 100;
+	xx[2,] = t(data[,p2]) * t(data[,11]) / 100;
 	maxvalue = ceiling(max(xx) * 1.05);
 	minvalue = floor(min(xx));
 	par(mar=c(3.0,3.0,0.0,0.0));
