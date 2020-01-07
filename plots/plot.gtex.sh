@@ -9,7 +9,7 @@ cd $outdir
 for aaa in `echo "scallop stringtie"`
 do
 
-for xxx in `echo "A"`
+for xxx in `echo "0"`
 do
 
 datafile=$dir/results.$1/gtex-$aaa-$xxx

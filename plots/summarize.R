@@ -1,16 +1,26 @@
 summarize = function(datafile, outputfile)
 {
 	data = read.table(datafile);
-	result = 1:8;
-	result[1] = floor(mean(data[,4]));
-	result[2] = floor(mean(data[,8]));
-	result[3] = mean(data[,6]);
-	result[4] = mean(data[,10]);
-	result[5] = floor(mean(data[,16] * data[,11] / 100));
-	result[6] = floor(mean(data[,17] * data[,11] / 100));
-	result[7] = mean(data[,13]);
-	result[8] = mean(data[,14]);
+	result = 1:16;
+	result[1 * 2 - 1] = mean(data[,4]);
+	result[2 * 2 - 1] = mean(data[,8]);
+	result[3 * 2 - 1] = mean(data[,6]);
+	result[4 * 2 - 1] = mean(data[,10]);
+	result[5 * 2 - 1] = mean(data[,16] * data[,11] / 100);
+	result[6 * 2 - 1] = mean(data[,17] * data[,11] / 100);
+	result[7 * 2 - 1] = mean(data[,13]);
+	result[8 * 2 - 1] = mean(data[,14]);
+
+	result[1 * 2 + 0] = sd(data[,4]);
+	result[2 * 2 + 0] = sd(data[,8]);
+	result[3 * 2 + 0] = sd(data[,6]);
+	result[4 * 2 + 0] = sd(data[,10]);
+	result[5 * 2 + 0] = sd(data[,16] * data[,11] / 100);
+	result[6 * 2 + 0] = sd(data[,17] * data[,11] / 100);
+	result[7 * 2 + 0] = sd(data[,13]);
+	result[8 * 2 + 0] = sd(data[,14]);
+
 	sink(outputfile, append = TRUE);
-	cat(datafile, format(result[1:2], nsmall = 0), format(result[3:4], digits = 3, nsmall = 1), format(result[5:6], nsmall = 0), format(result[7:8], digits = 3, nsmall = 1), "\n");
+	cat(datafile, format(result, digits = 3), "\n");
 	sink();
 }
