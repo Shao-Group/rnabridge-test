@@ -2,7 +2,15 @@
 
 ./summarize.encode10.sh D156
 ./summarize.encode65.sh D156
-./summarize.gtex.sh D156
+
+exit
+
+./plot.encode10.sh D156 normal 15 7 11 13 5 9 Raw
+./plot.encode10.sh D156 adjust 19 17 18 23 21 22 Adjusted
+./plot.encode65.sh D156 normal 15 7 11 13 5 9 Raw
+./plot.encode65.sh D156 adjust 19 17 18 23 21 22 Adjusted
+
+#./summarize.gtex.sh D156
 
 exit
 
