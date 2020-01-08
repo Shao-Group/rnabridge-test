@@ -65,6 +65,7 @@ do
 	p3=`echo "scale = 2; 100 * $p1 / $p0" | bc`
 
 	# adjusted to match recall
+	# m1 = #matched-transcripts #adjusted-precision-coral-w/o-ref #adjusted-precision-coral-w/-ref #adjusted-precision-w/o-coral
 	m1=""
 	if [ "$x1" -gt "$p1" ] && [ "$y1" -gt "$p1" ]; then
 		linex=`$gtfcuff match-correct $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap $total $p1`
@@ -86,6 +87,8 @@ do
 		m1="$y1 $mx $y3 $mp"
 	fi
 
+	# adjusted to match precision
+	# m1 = #matched-precision #adjusted-correct-transcripts-coral-w/o-ref #adjusted-correct-transcripts-coral-w/-ref #adjusted-correct-transcripts-w/o-coral
 	m2=""
 	if (( $(echo "$x3 < $p3" | bc -l) )) && (( $(echo "$y3 < $p3" | bc -l) )); then
 		linex=`$gtfcuff match-precision $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap $total $p3`
