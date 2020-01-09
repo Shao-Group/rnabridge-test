@@ -1,51 +1,40 @@
 #!/bin/bash
 
 dir=`pwd`
-outdir=$dir/gtex.$1.$2
+outdir=$dir/gtex.$1
+tmpoutfile=$outdir/tmpoutfile.data
 mkdir -p $outdir
+rm -rf $tmpoutfile
 	
 cd $outdir
 
-for aaa in `echo "scallop stringtie"`
+for aaa in `echo "stringtie scallop"`
 do
 
-for xxx in `echo "0"`
-do
+rawdata=$dir/results.$1/gtex-$aaa
 
-datafile=$dir/results.$1/gtex-$aaa-$xxx
+prefix=normal-$aaa-A
+$dir/hist.sh $outdir $rawdata $prefix 15 7 13 5 "w/" Original
 
-# draw precision
-id="$aaa-$xxx-precision"
-texfile=$outdir/$id.tex
+prefix=normal-$aaa-0
+$dir/hist.sh $outdir $rawdata $prefix 11 7 9 5 "w/o" Original
+
+prefix=adjust-$aaa-A
+$dir/hist.sh $outdir $rawdata $prefix 19 17 23 21 "w/" Adjusted
+
+prefix=adjust-$aaa-0
+$dir/hist.sh $outdir $rawdata $prefix 18 17 22 21 "w/o" Adjusted
+
 tmpfile=$dir/tmpfile.R
 rm -rf $tmpfile
-
-echo "source(\"$dir/hist.R\")" > $tmpfile
-echo "hist.precision(\"$datafile\", \"$texfile\", $3, $4, \"$aaa\", \"Coral+$aaa\", \"$7 Precision\", 1)" >> $tmpfile
+echo "source(\"$dir/summarize.R\")" > $tmpfile
+echo "summarize.3(\"$rawdata\", \"$tmpoutfile\")" >> $tmpfile
 R CMD BATCH $tmpfile
-$dir/wrap.sh $id.tex
-pdflatex $id.tex
-
-
-# draw correct
-id="$aaa-$xxx-correct"
-texfile=$outdir/$id.tex
-tmpfile=$dir/tmpfile.R
-rm -rf $tmpfile
-
-echo "source(\"$dir/hist.R\")" > $tmpfile
-echo "hist.correct(\"$datafile\", \"$texfile\", $5, $6, \"$aaa\", \"Coral+$aaa\", \"$7 Correct\", 1)" >> $tmpfile
-R CMD BATCH $tmpfile
-$dir/wrap.sh $id.tex
-pdflatex $id.tex
-
-id="$aaa-$xxx"
-cp $dir/combine.tex $id.tex
-sed -i "" "s/AAA/${id}-precision/" $id.tex
-sed -i "" "s/BBB/${id}-correct/" $id.tex
-pdflatex $id.tex
-
 rm -rf $tmpfile
 
 done
-done
+
+outputfile=$outdir/summary.gtex
+cat $tmpoutfile | sed 's/.U.*gtex-//g' | sed 's/  */ /g' | sed 's/-/,/g' | sed 's/,0/,WO/g' | sed 's/,A/,WR/g' | sed 's/stringtie/ST/g' | sed 's/star/SR/g' | sed 's/scallop/SC/g' | sed 's/hisat/HI/g'  > $outputfile
+
+$dir/errorbar.sh $outdir $outputfile 0.3
