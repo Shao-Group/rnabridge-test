@@ -37,4 +37,4 @@ done
 outputfile=$outdir/summary.gtex
 cat $tmpoutfile | sed 's/.U.*gtex-//g' | sed 's/  */ /g' | sed 's/-/,/g' | sed 's/,0/,WO/g' | sed 's/,A/,WR/g' | sed 's/stringtie/ST/g' | sed 's/star/SR/g' | sed 's/scallop/SC/g' | sed 's/hisat/HI/g'  > $outputfile
 
-$dir/errorbar.sh $outdir $outputfile 0.3
+$dir/errorbar.sh $outdir $outputfile 0.23

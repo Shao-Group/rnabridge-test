@@ -30,8 +30,6 @@ $dir/barplot.sh $outdir $rawdata2 $prefix 15 11 7 13 9 5 Original
 prefix=adjust-$aaa-2
 $dir/barplot.sh $outdir $rawdata2 $prefix 19 18 17 23 22 21 Adjusted
 
-continue
-
 tmpfile=$dir/tmpfile.R
 rm -rf $tmpfile
 echo "source(\"$dir/summarize.R\")" > $tmpfile
@@ -41,8 +39,6 @@ rm -rf $tmpfile
 
 done
 
-exit
-
 outputfile=$outdir/summary.encode65
 cat $tmpoutfile | sed 's/.U.*encode65-//g' | sed 's/  */ /g' | sed 's/-/,/g' | sed 's/,0/,WO/g' | sed 's/,A/,WR/g' | sed 's/stringtie/ST/g' | sed 's/star/SR/g' | sed 's/scallop/SC/g' | sed 's/hisat/HI/g'  > $outputfile
-$dir/errorbar.sh $outdir $outputfile 0.3
+$dir/errorbar.sh $outdir $outputfile 0.23

@@ -13,7 +13,7 @@ plot.horiz.3 = function(datafile, texfile, p1, p2, p3, title, flag)
 	maxvalue3 = max(xx[3,]);
 	maxvalue = max(maxvalue1, maxvalue2, maxvalue3) * 1.1;
 
-	par(mar=c(0.1,4.5,3.0,0.0));
+	par(mar=c(0.1,4.4,3.0,0.0));
 	barplot(xx, horiz=TRUE, beside=TRUE, col=c(4,2,6), xaxt = 'n', yaxt = 'n', xlim = c(0, maxvalue));
 	axis(3, tck = -0.025, mgp = c(0, 0.6, 0), pos = n * 4 + 1);
 	axis(3, tick = FALSE, pos = n * 4 + 3, at = c(maxvalue * 0.45), labels = c(title));
