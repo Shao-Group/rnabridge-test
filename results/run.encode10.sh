@@ -32,7 +32,7 @@ function make.scripts
 	mkdir -p $pbsdir
 
 	if [ "$algo" == "coral" ]; then
-		cp $coralsrc/scallop $bin/coral-$tag
+		cp $coralsrc/coral $bin/coral-$tag
 		exe=$bin/coral-$tag
 	fi
 	

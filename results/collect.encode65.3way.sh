@@ -66,19 +66,19 @@ do
 		liney=`$gtfcuff match-correct $results/$id/$algo.$suffix.A/gffmul.$algo.gtf.tmap $total $p1`
 		mx=`echo $linex | cut -f 16 -d " "`
 		my=`echo $liney | cut -f 16 -d " "`
-		m1="$p1 $mx $my $p3"
+		m1="$p1 $my $mx $p3"
 	elif [ "$y1" -gt "$x1" ] && [ "$p1" -gt "$x1" ]; then
 		liney=`$gtfcuff match-correct $results/$id/$algo.$suffix.A/gffmul.$algo.gtf.tmap $total $x1`
 		linep=`$gtfcuff match-correct $results/$id/$algo.$comp/gffmul.$algo.gtf.tmap $total $x1`
 		my=`echo $liney | cut -f 16 -d " "`
 		mp=`echo $linep | cut -f 16 -d " "`
-		m1="$x1 $x3 $my $mp"
+		m1="$x1 $my $x3 $mp"
 	else
 		linex=`$gtfcuff match-correct $results/$id/$algo.$suffix/gffmul.$algo.gtf.tmap $total $y1`
 		linep=`$gtfcuff match-correct $results/$id/$algo.$comp/gffmul.$algo.gtf.tmap $total $y1`
 		mx=`echo $liney | cut -f 16 -d " "`
 		mp=`echo $linep | cut -f 16 -d " "`
-		m1="$y1 $mx $y3 $mp"
+		m1="$y1 $y3 $mx $mp"
 	fi
 
 	m2=""
@@ -87,20 +87,20 @@ do
 		liney=`$gtfcuff match-precision $results/$id/$algo.$suffix.A/gffmul.$algo.gtf.tmap $total $p3`
 		mx=`echo $linex | cut -f 10 -d " "`
 		my=`echo $liney | cut -f 10 -d " "`
-		m2="$p3 $mx $my $p1"
+		m2="$p3 $my $mx $p1"
 	elif (( $(echo "$p3 < $x3" | bc -l) )) && (( $(echo "$y3 < $x3" | bc -l) )); then
 		liney=`$gtfcuff match-precision $results/$id/$algo.$suffix.A/gffmul.$algo.gtf.tmap $total $x3`
 		linep=`$gtfcuff match-precision $results/$id/$algo.$comp/gffmul.$algo.gtf.tmap $total $x3`
 		my=`echo $liney | cut -f 10 -d " "`
 		mp=`echo $linep | cut -f 10 -d " "`
-		m2="$x3 $x1 $my $mp"
+		m2="$x3 $my $x1 $mp"
 	else
 		linex=`$gtfcuff match-precision $results/$id/$algo.$suffix/gffmul.$algo.gtf.tmap $total $y3`
 		linep=`$gtfcuff match-precision $results/$id/$algo.$comp/gffmul.$algo.gtf.tmap $total $y3`
 		mx=`echo $linex | cut -f 10 -d " "`
 		mp=`echo $linep | cut -f 10 -d " "`
-		m2="$y3 $mx $y1 $mp"
+		m2="$y3 $y1 $mx $mp"
 	fi
 
-	echo $id default $total $x0 $x1 $x2 $x3 $y0 $y1 $y2 $y3 $p0 $p1 $p2 $p3 $m1 $m2
+	echo $id default $total $y0 $y1 $y2 $y3 $x0 $x1 $x2 $x3 $p0 $p1 $p2 $p3 $m1 $m2
 done

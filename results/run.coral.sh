@@ -25,9 +25,9 @@ high=`cat $log | grep preview | grep insertsize | head -n 1 | awk '{print $20}' 
 
 if [ "$#" == "7" ] && [ "$7" == "-gtf" ]; then
 #{ /usr/bin/time -v $exe -i $bam -b coral.bam --insertsize_median $median --insertsize_low $low --insertsize_high $high -r $gtf --library_type $strand > coral.log; } 2> time.log
-	{ /usr/bin/time -v $exe -i $bam -b coral.bam -r $gtf --library_type $strand > coral.log; } 2> time.log
+	{ /usr/bin/time -v $exe -i $bam -o coral.bam -r $gtf --library_type $strand > coral.log; } 2> time.log
 else
-	{ /usr/bin/time -v $exe -i $bam -b coral.bam --library_type $strand > coral.log; } 2> time.log
+	{ /usr/bin/time -v $exe -i $bam -o coral.bam --library_type $strand > coral.log; } 2> time.log
 fi
 
 #{ /usr/bin/time -v $exe -i $bam -b coral.bam --library_type unstranded > coral.log; } 2> time.log
