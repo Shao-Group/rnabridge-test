@@ -74,10 +74,16 @@ to run the methods assemblers on the datasets:
 ./run.encode10.sh
 ./run.encode50.sh
 ```
-In each of these three scripts, you can modify it to run different parameters.
+In each of these scripts, you can modify it to run different parameters.
 For each run, you need to specify a `run-id`, which will be used later on when
 collecting the results. 
 
+After experiments finish running, the following script can collect accuracies:
+```
+./collect.sh
+```
+This will report results to a directory `results.RUN-ID`, which can be directly
+use by the scripts to generate figreus (below).
 
 # Analysis Results and Reproduce Figures
 
