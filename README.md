@@ -91,5 +91,6 @@ Once the results have been generated, one can use the following scripts in `plot
 ```
 ./build.figures.sh
 ```
-You may need to install R `tikzDevice`.
-You may also need to modify these scripts to match the `run-id(s)` you specified..
+You may need to install R `tikzDevice`.  You may also need to modify these scripts to match the `run-id(s)` you specified.
+The results used in the manuscript (run-id = D156) has been update in this repo (including GTEx dataset),
+so the directly running above script can generate all figures used in the manuscript.
