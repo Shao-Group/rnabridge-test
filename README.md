@@ -73,10 +73,16 @@ to run the methods assemblers on the datasets:
 ./run.encode10.sh
 ./run.encode50.sh
 ```
-In each of these three scripts, you can modify it to run different parameters.
+In each of these scripts, you can modify it to run different parameters.
 For each run, you need to specify a `run-id`, which will be used later on when
 collecting the results. 
 
+After experiments finish running, the following script can collect accuracies:
+```
+./collect.sh
+```
+This will report results to a directory `results.RUN-ID`, which can be directly
+use by the scripts to generate figreus (below).
 
 # Analysis Results and Reproduce Figures
 
@@ -84,5 +90,6 @@ Once the results have been generated, one can use the following scripts in `plot
 ```
 ./build.figures.sh
 ```
-You may need to install R `tikzDevice`.
-You may also need to modify these scripts to match the `run-id(s)` you specified..
+You may need to install R `tikzDevice`.  You may also need to modify these scripts to match the `run-id(s)` you specified.
+The results used in the manuscript (run-id = D156) has been update in this repo (including GTEx dataset),
+so the directly running above script can generate all figures used in the manuscript.
