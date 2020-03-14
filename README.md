@@ -21,14 +21,13 @@ In directory `data`, we provide metadata for these datasets, and also provide sc
 ## **encode10**
 The first dataset, namely **encode10**,
 contains 10 human RNA-seq samples downloaded from ENCODE.
-This dataset has also been used in [**scalloptest**](https://github.com/Kingsford-Group/scalloptest).
+This dataset has also been used in [scalloptest](https://github.com/Kingsford-Group/scalloptest).
 All these samples are sequenced with strand-specific and paired-end protocols.
 For each of these 10 samples, we align it with two RNA-seq aligners,
 [STAR](https://github.com/alexdobin/STAR) and
 [HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml).
-We have uploaded all these reads alignments to Penn State OneDrive.
-Use this [link](https://pennstateoffice365-my.sharepoint.com/:f:/g/personal/mxs2589_psu_edu/Esh5l4908nNBtVOkuBvnLuUBkzWUW4LVWDtUiKuRUPEG1w)
-to download these files. 
+You may download all these reads alignments via
+[Penn State Data Commons](https://doi.org/10.26208/8c06-w247).
 
 ## **encode50**
 The second dataset, namely **encode50**,
