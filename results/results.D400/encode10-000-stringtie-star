@@ -1,70 +1,10 @@
-cat: ../results/encode10/SRR534319.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR534319.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR534319.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR534319 star 199669 64580 0 0 0 55164 12791 6.40 23.18 0 0 0 0 0 0 12791
-cat: ../results/encode10/SRR534291.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR534291.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR534291.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR534291 star 199669 39206 0 0 0 37302 13662 6.84 36.62 0 0 0 0 0 0 13662
-cat: ../results/encode10/SRR545695.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR545695.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR545695.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR545695 star 199669 67022 0 0 0 52093 13565 6.79 26.03 0 0 0 0 0 0 13565
-cat: ../results/encode10/SRR387661.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR387661.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR387661.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR387661 star 199669 56669 0 0 0 45905 14743 7.38 32.11 0 0 0 0 0 0 14743
-cat: ../results/encode10/SRR307911.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR307911.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR307911.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR307911 star 199669 55137 0 0 0 44841 15291 7.65 34.10 0 0 0 0 0 0 15291
-cat: ../results/encode10/SRR545723.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR545723.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR545723.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR545723 star 199669 45100 0 0 0 36021 14037 7.03 38.96 0 0 0 0 0.00 0 0 14037
-cat: ../results/encode10/SRR315323.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR315323.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR315323.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR315323 star 199669 44722 0 0 0 37140 12294 6.15 33.10 0 0 0 0 0 0 12294
-cat: ../results/encode10/SRR307903.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR307903.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR307903.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR307903 star 199669 39042 0 0 0 35316 14926 7.47 42.26 0 0 0 0 0 0 14926
-cat: ../results/encode10/SRR315334.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR315334.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR315334.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR315334 star 199669 40514 0 0 0 37316 14199 7.11 38.05 0 0 0 0 0 0 14199
-cat: ../results/encode10/SRR534307.star/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
-cat: ../results/encode10/SRR534307.star/stringtie.0.10.5/gffmul.stats: No such file or directory
-cat: ../results/encode10/SRR534307.star/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
-(standard_in) 2: syntax error
-(standard_in) 2: syntax error
-(standard_in) 1: syntax error
-SRR534307 star 199669 68096 0 0 0 68355 18936 9.48 27.70 0 0 0 0 0 0 18936
+SRR534319 star 199669 64580 14589 7.30 22.59 55164 12791 6.40 23.18 49999 11030 5.52 22.06 11030 35.47 32.63 22.06 23.18 14377 12791 10804
+SRR534291 star 199669 39206 15426 7.72 39.34 37302 13662 6.84 36.62 38141 13237 6.62 34.70 13237 49.04 40.68 34.70 39.34 15426 13374 12643
+SRR545695 star 199669 67022 15584 7.80 23.25 52093 13565 6.79 26.03 47487 12143 6.08 25.57 12143 37.28 34.26 25.57 26.03 14938 13565 12069
+SRR387661 star 199669 56669 17422 8.72 30.74 45905 14743 7.38 32.11 44566 13543 6.78 30.38 13543 48.69 42.29 30.38 32.11 17118 14743 13349
+SRR307911 star 199669 55137 17656 8.84 32.02 44841 15291 7.65 34.10 40992 14141 7.08 34.49 14141 47.68 43.01 34.49 34.49 17114 15259 14141
+SRR545723 star 199669 45100 15871 7.94 35.19 36021 14037 7.03 38.96 34299 13517 6.76 39.40 13517 47.88 43.21 39.40 39.40 14957 13993 13517
+SRR315323 star 199669 44722 13880 6.95 31.03 37140 12294 6.15 33.10 33998 11362 5.69 33.41 11362 43.03 40.61 33.41 33.41 13404 12272 11362
+SRR307903 star 199669 39042 16620 8.32 42.56 35316 14926 7.47 42.26 33275 14145 7.08 42.50 14145 56.07 49.46 42.50 42.56 16620 14906 14139
+SRR315334 star 199669 40514 16034 8.03 39.57 37316 14199 7.11 38.05 34164 13215 6.61 38.68 13215 55.73 47.49 38.68 39.57 16034 14060 13122
+SRR534307 star 199669 68096 20903 10.46 30.69 68355 18936 9.48 27.70 65611 18345 9.18 27.96 18345 42.95 32.45 27.96 30.69 20903 18593 17994
