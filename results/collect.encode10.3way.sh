@@ -85,7 +85,7 @@ do
 	else
 		linex=`$gtfcuff match-correct $results/$id.$aa/$algo.$suffix/gffmul.$algo.gtf.tmap $total $y1`
 		linep=`$gtfcuff match-correct $results/$id.$aa/$algo.$comp1/gffmul.$algo.gtf.tmap $total $y1`
-		mx=`echo $liney | cut -f 16 -d " "`
+		mx=`echo $linex | cut -f 16 -d " "`
 		mp=`echo $linep | cut -f 16 -d " "`
 		m1="$y1 $y3 $mx $mp"
 	fi
