@@ -1,0 +1,70 @@
+cat: ../results/encode10/SRR534319.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR534319.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR534319.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR534319 hisat 199669 65730 0 0 0 58610 12762 6.39 21.77 0 0 0 0 0 0 12762
+cat: ../results/encode10/SRR534291.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR534291.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR534291.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR534291 hisat 199669 40626 0 0 0 38825 13908 6.96 35.82 0 0 0 0 0.00 0 0 13908
+cat: ../results/encode10/SRR545695.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR545695.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR545695.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR545695 hisat 199669 68576 0 0 0 55960 13403 6.71 23.95 0 0 0 0 0 0 13403
+cat: ../results/encode10/SRR387661.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR387661.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR387661.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR387661 hisat 199669 58264 0 0 0 49948 14850 7.43 29.73 0 0 0 0 0 0 14850
+cat: ../results/encode10/SRR307911.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR307911.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR307911.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR307911 hisat 199669 55044 0 0 0 47795 15472 7.74 32.37 0 0 0 0 0.00 0 0 15472
+cat: ../results/encode10/SRR545723.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR545723.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR545723.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR545723 hisat 199669 48722 0 0 0 41453 13884 6.95 33.49 0 0 0 0 0.00 0 0 13884
+cat: ../results/encode10/SRR315323.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR315323.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR315323.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR315323 hisat 199669 44809 0 0 0 39649 12460 6.24 31.42 0 0 0 0 0 0 12460
+cat: ../results/encode10/SRR307903.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR307903.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR307903.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR307903 hisat 199669 38431 0 0 0 37233 15039 7.53 40.39 0 0 0 0 0 0 15039
+cat: ../results/encode10/SRR315334.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR315334.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR315334.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR315334 hisat 199669 39991 0 0 0 39158 14340 7.18 36.62 0 0 0 0 0 0 14340
+cat: ../results/encode10/SRR534307.hisat/stringtie.cd3300/gffmul.stringtie.gtf.tmap: No such file or directory
+cat: ../results/encode10/SRR534307.hisat/stringtie.0.10.5/gffmul.stats: No such file or directory
+cat: ../results/encode10/SRR534307.hisat/stringtie.0.10.5/gffmul.stringtie.gtf.tmap: No such file or directory
+(standard_in) 2: syntax error
+(standard_in) 2: syntax error
+(standard_in) 1: syntax error
+SRR534307 hisat 199669 68766 0 0 0 72458 18614 9.32 25.68 0 0 0 0 0.00 0 0 18614
