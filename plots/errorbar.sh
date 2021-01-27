@@ -29,7 +29,7 @@ $dir/wrap.sh $id.tex
 pdflatex $id.tex
 
 id="raw"
-cp $dir/combine.tex $id.tex
+cp $dir/combine1.tex $id.tex
 sed -i "" "s/AAA/${id}-correct/" $id.tex
 sed -i "" "s/BBB/${id}-precision/" $id.tex
 pdflatex $id.tex
@@ -54,7 +54,7 @@ $dir/wrap.sh $id.tex
 pdflatex $id.tex
 
 id="adjust"
-cp $dir/combine.tex $id.tex
+cp $dir/combine1.tex $id.tex
 sed -i "" "s/AAA/${id}-correct/" $id.tex
 sed -i "" "s/BBB/${id}-precision/" $id.tex
 pdflatex $id.tex

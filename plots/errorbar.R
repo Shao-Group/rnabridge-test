@@ -9,7 +9,7 @@ plot.error.bar = function(datafile, texfile, p1, p2, p3, title, leftmargin, flag
 	data = read.table(datafile);
 	n = length(data[,1]);
 	library(tikzDevice);
-	tikz(texfile, width = 4.2 + leftmargin, height = 0.6 + 0.5 * n);
+	tikz(texfile, width = 4.2 + leftmargin, height = 0.6 + 0.45 * n); #0.5 * n
 
 	xx = matrix(nrow = 3, ncol = n);
 	ee = matrix(nrow = 3, ncol = n);
@@ -35,7 +35,7 @@ plot.error.bar = function(datafile, texfile, p1, p2, p3, title, leftmargin, flag
 	axis(2, tick = FALSE, las = 1, at = c(1:n) * 4 - 1.5, labels = t(data[n:1,1]), mgp = c(0, 0.3, 0));
 
 	px = maxvalue * 1.02;
-	py = n * 4 + 1.0;
+	py = n * 4 + 1.1;
 
 	if(flag > 0)
 	{

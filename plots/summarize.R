@@ -1,3 +1,17 @@
+summarize.5 = function(datafile, outputfile, aligner)
+{
+	data = read.table(datafile);
+	result = 1:33;
+	for (k in seq(1,33))
+	{
+		result[k] = mean(data[,k+2]);
+	}
+
+	sink(outputfile, append = TRUE);
+	cat(aligner, "XXX", format(result, digits = 6), "\n");
+	sink();
+}
+
 summarize.3 = function(datafile, outputfile)
 {
 	data = read.table(datafile);

@@ -27,13 +27,13 @@ tmpfile=$dir/tmpfile.R
 rm -rf $tmpfile
 
 echo "source(\"$dir/hist.R\")" > $tmpfile
-echo "hist.2(\"$datafile\", \"$texfile\", $6, $7, \"Coral $8 ref.\", \"w/o Coral\", \"$9 Precision\", 1)" >> $tmpfile
+echo "hist.2(\"$datafile\", \"$texfile\", $6, $7, \"Coral $8 ref.\", \"w/o Coral\", \"$9 Correct\", 1)" >> $tmpfile
 R CMD BATCH $tmpfile
 $dir/wrap.sh $id.tex
 pdflatex $id.tex
 
 id="$prefix"
-cp $dir/combine.tex $id.tex
+cp $dir/combine1.tex $id.tex
 sed -i "" "s/AAA/${id}-precision/" $id.tex
 sed -i "" "s/BBB/${id}-correct/" $id.tex
 pdflatex $id.tex
