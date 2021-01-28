@@ -22,7 +22,7 @@ rm -rf $tmpfile
 echo "source(\"$dir/barplot.R\")" > $tmpfile
 
 if [ "$way5" = "1" ]; then
-	echo "plot.mean.5(\"$datafile\", \"$texfile\", $4, $5, $6, $7, $8, \"${14} Precision\", 1)" >> $tmpfile
+	echo "plot.mean.4(\"$datafile\", \"$texfile\", $4, $5, $6, $7, $8, \"${14} Precision\", 1)" >> $tmpfile
 else
 	echo "plot.horiz.3(\"$datafile\", \"$texfile\", $4, $5, $6, \"${10} Precision\", 1)" >> $tmpfile
 fi
@@ -40,7 +40,7 @@ rm -rf $tmpfile
 
 echo "source(\"$dir/barplot.R\")" > $tmpfile
 if [ "$way5" = "1" ]; then
-	echo "plot.mean.5(\"$datafile\", \"$texfile\", $9, ${10}, ${11}, ${12}, ${13}, \"${14} Correct\", 1)" >> $tmpfile
+	echo "plot.mean.4(\"$datafile\", \"$texfile\", $9, ${10}, ${11}, ${12}, ${13}, \"${14} Correct\", 1)" >> $tmpfile
 else
 	echo "plot.horiz.3(\"$datafile\", \"$texfile\", $7, $8, $9, \"${10} Correct\", -1)" >> $tmpfile
 fi

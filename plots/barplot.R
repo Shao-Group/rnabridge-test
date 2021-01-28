@@ -1,3 +1,39 @@
+plot.mean.4 = function(datafile, texfile, p1, p2, p3, p4, p5, title, flag)
+{
+	data = read.table(datafile);
+	n = length(data[,1]);
+	library(tikzDevice);
+	tikz(texfile, width = 4.5, height = 0.5 + 0.5 * n);
+	xx = matrix(nrow = 4, ncol = n);
+	xx[1,] = t(data[,p1]);
+	xx[2,] = t(data[,p2]);
+	xx[3,] = t(data[,p3]);
+	xx[4,] = t(data[,p4]);
+	maxvalue1 = max(xx[1,]);
+	maxvalue2 = max(xx[2,]);
+	maxvalue3 = max(xx[3,]);
+	maxvalue4 = max(xx[4,]);
+	maxvalue = max(maxvalue1, maxvalue2, maxvalue3, maxvalue4);
+
+	library(RColorBrewer);
+	coul <- brewer.pal(4, "Paired");
+
+	par(mar=c(0.1,3.5,3.0,0.0));
+	barplot(xx, horiz=TRUE, beside=TRUE, col=coul, xaxt = 'n', yaxt = 'n', xlim = c(0, maxvalue * 1.55));
+	axis(3, tck = -0.025, mgp = c(0, 0.4, 0), pos = n * 5 + 1);
+	axis(3, tick = FALSE, pos = n * 5 + 2.0, at = c(maxvalue * 0.7), labels = c(title));
+	axis(2, tick = FALSE, las = 1, at = c(1:n) * 5 - 2.0, labels = t(data[,1]), mgp = c(0, 0.3, 0));
+	px = maxvalue * 1.0;
+	py = 10;
+
+	if(flag > 0)
+	{
+		legend(px, py, c("Bridge + Scallop", "Scallop", "Bridge + StringTie", "StringTie"),
+				col = rev(coul), fill = rev(coul), bty='n', y.intersp = 1.0) #, cex = 1, xjust = 1, x.intersp = 0.5); 
+	}
+	dev.off();
+}
+
 plot.mean.5 = function(datafile, texfile, p1, p2, p3, p4, p5, title, flag)
 {
 	data = read.table(datafile);
