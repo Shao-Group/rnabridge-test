@@ -1,9 +1,10 @@
 # Overview
 
-This repository tests the performance of
-[**Coral**](https://github.com/Shao-Group/coral) in improving transcript assembly.
-Here we provide scripts to download datasets, run Coral and downstream assemblers,
-and reproduce the results and figures in the manuscript (submitted).
+This repository tests the performance of 
+[**rnabridge-align**](https://github.com/Shao-Group/rnabridge-align) and
+[**rnabridge-denovo**](https://github.com/Shao-Group/rnabridge-denovo).
+Here we provide scripts to download datasets, run these tools
+and reproduce the results and figures in the manuscript.
 
 The pipeline involves in the followint four steps:
 
@@ -13,7 +14,7 @@ The pipeline involves in the followint four steps:
 4. Summarize results and produce figures (`plots` directory).
 
 # Datasets
-We evaluate Coral on three datasets, namely **encode10**, **encode50**, and **gtex**
+We evaluate them on two datasets.
 (the GTEx dataset is restricted so we do not publish here). 
 Besides, we also need the annotation files for evaluation purposes.
 In directory `data`, we provide metadata for these datasets, and also provide scripts to download them.
@@ -54,7 +55,7 @@ Our experiments (used in the manuscript) involve the following four programs:
 
 Program | Version | Description
 ------------ | ------------ | ------------ 
-[Coral](https://github.com/Shao-Group/coral) | v1.0.0 | Transcript assembler
+[rnabridge-align](https://github.com/Shao-Group/rnabridge-align) | v1.0.0 | Transcript assembler
 [Scallop](https://github.com/Kingsford-Group/scallop) | v0.10.4 | Transcript assembler
 [StringTie](https://ccb.jhu.edu/software/stringtie/) | v1.3.5 | Transcript assembler
 [gffcompare](http://ccb.jhu.edu/software/stringtie/gff.shtml) | v0.11.2 | Evaluate assembled transcripts
@@ -62,7 +63,7 @@ Program | Version | Description
 
 You need to download and/or complile them,
 and then link them to `programs` directory.
-Make sure that the program names are in lower cases (i.e., `coral`, `stringtie`, `scallop`, and `gffcompare`)
+Make sure that the program names are in lower cases (i.e., `stringtie`, `scallop`, and `gffcompare`)
 in `programs` directory.
 
 # Run the Methods
