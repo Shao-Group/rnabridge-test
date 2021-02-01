@@ -32,8 +32,8 @@ done
 outputfile=$outdir/summary.encode10
 cat $tmpoutfile | sed 's/.U.*000-//g' | sed 's/  */ /g' | sed 's/-/,/g' | sed 's/,0/,WO/g' | sed 's/,A/,WR/g' | sed 's/stringtie/ST/g' | sed 's/star/STAR/g' | sed 's/scallop/SC/g' | sed 's/hisat/HISAT2/g'  > $outputfile
 
-prefix=normal
-$dir/barplot.sh $outdir $outputfile $prefix 23 19 15 11 7 21 17 13 9 5 Original 1
+#prefix=normal
+#$dir/barplot.sh $outdir $outputfile $prefix 23 19 15 11 7 21 17 13 9 5 Original 1
 
 prefix=adjust
 $dir/barplot.sh $outdir $outputfile $prefix 29 28 27 26 25 35 34 33 32 31 Adjusted 1
