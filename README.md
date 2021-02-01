@@ -6,7 +6,7 @@ This repository tests the performance of
 Here we provide scripts to download datasets, run these tools
 and reproduce the results and figures in the manuscript.
 
-The pipeline involves in the followint four steps:
+The pipeline involves in the followint five steps:
 
 1. Download necessary datasets (`data` directory).
 2. Download and/or compile necessary programs (`programs` directory).
