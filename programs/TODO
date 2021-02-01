@@ -1,5 +1,6 @@
 This folder should include/link the following binary programs:
-coral
+rnabridge-align
+rnabridge-denovo
 scallop
 stringtie
 gffcompare

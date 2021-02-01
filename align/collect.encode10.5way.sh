@@ -1,6 +1,7 @@
 #!/bin/bash
 
-aa="star"
+aa=$1
+
 algo1="scallop"
 algo2="scallop"
 algo3="scallop"
