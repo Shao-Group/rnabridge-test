@@ -10,18 +10,20 @@ The pipeline involves in the followint four steps:
 
 1. Download necessary datasets (`data` directory).
 2. Download and/or compile necessary programs (`programs` directory).
-3. Run the methods to produce results (`results` directory).
-4. Summarize results and produce figures (`plots` directory).
+3. Run the methods and produce results regarding `rnabridge-align` (`align` directory).
+4. Run the methods and produce results regarding `rnabridge-denovo` (`denovo` directory).
+5. Summarize results and produce figures (`plots` directory).
 
 # Datasets
-We evaluate them on two datasets.
-(the GTEx dataset is restricted so we do not publish here). 
-Besides, we also need the annotation files for evaluation purposes.
+We evaluate them on two datasets, namely simulation80 and encode10.
+We also need the reference annotation files for evaluating reference-based transcript assembly.
 In directory `data`, we provide metadata for these datasets, and also provide scripts to download them.
 
+## **simulation80**
+To be available via Penn State Data Commons.
+
 ## **encode10**
-The first dataset, namely **encode10**,
-contains 10 human RNA-seq samples downloaded from ENCODE.
+This dataset contains 10 human RNA-seq samples downloaded from ENCODE.
 This dataset has also been used in [scalloptest](https://github.com/Kingsford-Group/scalloptest).
 All these samples are sequenced with strand-specific and paired-end protocols.
 For each of these 10 samples, we align it with two RNA-seq aligners,
@@ -30,24 +32,12 @@ For each of these 10 samples, we align it with two RNA-seq aligners,
 You may download all these reads alignments via
 [Penn State Data Commons](https://doi.org/10.26208/8c06-w247).
 
-## **encode50**
-The second dataset, namely **encode50**,
-contains 50 human RNA-seq samples downloaded from ENCODE.
-This dataset includes 50 strand-specific samples and 15 non-strand samples.
-These samples have pre-computed reads alignments, and can be downloaded by the script in `data` directory.
-```
-./download.encode50.sh
-```
-The downloaded files will appear under `data/encode50`.
-
-## Annotations
-For **encode10** and **encode50** datasets, we use human annotation database as reference;
+## annotations
 Use the following script in `data` to download annotations:
 ```
 ./download.annotation.sh
 ```
 The downloaded files will appear under `data/ensembl`.
-
 
 # Programs
 
@@ -55,24 +45,21 @@ Our experiments (used in the manuscript) involve the following four programs:
 
 Program | Version | Description
 ------------ | ------------ | ------------ 
-[rnabridge-align](https://github.com/Shao-Group/rnabridge-align) | v1.0.0 | Transcript assembler
-[Scallop](https://github.com/Kingsford-Group/scallop) | v0.10.4 | Transcript assembler
-[StringTie](https://ccb.jhu.edu/software/stringtie/) | v1.3.5 | Transcript assembler
+[rnabridge-align](https://github.com/Shao-Group/rnabridge-align) | v1.0.1| bridging RNA-seq alignments
+[Scallop](https://github.com/Kingsford-Group/scallop) | v0.10.5 | transcript assembler
+[StringTie](https://ccb.jhu.edu/software/stringtie/) | v2.1.4 | transcript assembler
 [gffcompare](http://ccb.jhu.edu/software/stringtie/gff.shtml) | v0.11.2 | Evaluate assembled transcripts
-[gtfcuff](https://github.com/Kingsford-Group/rnaseqtools) |  | RNA-seq tool
+[gtfcuff](https://github.com/Kingsford-Group/rnaseqtools) |  | a set of utilities for processing RNA-seq data
 
-You need to download and/or complile them,
-and then link them to `programs` directory.
-Make sure that the program names are in lower cases (i.e., `stringtie`, `scallop`, and `gffcompare`)
-in `programs` directory.
+You need to download and/or complile them, and then link them to `programs` directory.
+Make sure that the program names are in lower cases (i.e., `stringtie`, `scallop`, and `gffcompare`) in `programs` directory.
 
-# Run the Methods
+# Generate Results for Evaluating rnabridge-align
 
-Once the datasets and programs are all available, use the following scripts in `results`
-to run the methods assemblers on the datasets:
+Once the datasets and programs are available, use the following scripts in `align` to run:
 ```
+./run.simulation80.sh
 ./run.encode10.sh
-./run.encode50.sh
 ```
 In each of these scripts, you can modify it to run different parameters.
 For each run, you need to specify a `run-id`, which will be used later on when
@@ -92,5 +79,5 @@ Once the results have been generated, one can use the following scripts in `plot
 ./build.figures.sh
 ```
 You may need to install R `tikzDevice`.  You may also need to modify these scripts to match the `run-id(s)` you specified.
-The results used in the manuscript (run-id = D156) has been update in this repo (including GTEx dataset),
-so the directly running above script can generate all figures used in the manuscript.
+#The results used in the manuscript (run-id = D400) has been update in this repo (including GTEx dataset),
+#so the directly running above script can generate all figures used in the manuscript.
