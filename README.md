@@ -20,17 +20,19 @@ We also need the reference annotation files for evaluating reference-based trans
 In directory `data`, we provide metadata for these datasets, and also provide scripts to download them.
 
 ## **simulation80**
-To be available via Penn State Data Commons.
+The data was simulated with Flux-Simulator. We tried two parameters,
+the average length of fragments (300 and 500) and the length of reads (75 and 100).
+For each combination, we simulated 20 samples.
+The reads, ground-truth transcripts, alignments (using STAR)
+can be downloaded through Penn State Data Commons (https://doi.org/10.26208/b01x-aq20).
 
 ## **encode10**
 This dataset contains 10 human RNA-seq samples downloaded from ENCODE.
 This dataset has also been used in [scalloptest](https://github.com/Kingsford-Group/scalloptest).
 All these samples are sequenced with strand-specific and paired-end protocols.
-For each of these 10 samples, we align it with two RNA-seq aligners,
-[STAR](https://github.com/alexdobin/STAR) and
-[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml).
+For each of these 10 samples, we align it with two RNA-seq aligners, STAR and HISAT2.
 You may download all these reads alignments via
-[Penn State Data Commons](https://doi.org/10.26208/8c06-w247).
+Penn State Data Commons (https://doi.org/10.26208/8c06-w247).
 
 ## annotations
 Use the following script in `data` to download annotations:
